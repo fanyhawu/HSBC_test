@@ -33,21 +33,18 @@
     @result_s
 
     )
-
-
-
   )
 
 (defn find_n_digit_fibonacci [n]
   (def a (atom "1"))
   (def b (atom "1"))
 
-  (loop [i 1000]( when (< (count @b) n)
+  (loop [i 0]( when (< (count @b) n)
                            (def tmp_c (add_big_num @a @b))
                            (def tmp_b @b)
                            (reset! a tmp_b)
                            (reset! b tmp_c)
-                           (recur (- i 1))
+                           (recur (+ i 1))
                            )
                 )
   @b
